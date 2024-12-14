@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"
+                        text="regresar" 
+                        color="primary"
+                        mode="ios"></ion-back-button>
+      </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+ 
+            
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p class="ion-text-center" style="font-size: medium;"><strong>Bienvenido:</strong> {{ var_username }}</p>
+
+    <ion-content class="ion-padding">
+      <form #sedeForm="ngForm" (ngSubmit)="generateQRCode()">
+        
+
+    
+        
+        <ion-item>
+          <ion-label position="floating">Sede</ion-label>
+          <ion-select [(ngModel)]="selectedSede" name="sede" required>
+            <ion-select-option value="Puente alto">Puente alto</ion-select-option>
+            <ion-select-option value="Providencia">Providencia</ion-select-option>
+            <ion-select-option value="San Bernardo">San Bernardo</ion-select-option>
+          </ion-select>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label position="floating">Jornada</ion-label>
+          <ion-select [(ngModel)]="selectedJornada" name="jornada" required>
+            <ion-select-option value="Diurno">Diurno</ion-select-option>
+            <ion-select-option value="Vespertino">Vespertino</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Asignatura</ion-label>
+          <ion-select [(ngModel)]="selectedAsignatura" name="asignatura"  [disabled]="!selectedSede" required>
+            <ion-select-option value="Programacion movil">Programacion movil</ion-select-option>
+            <ion-select-option value="Arquitectura">Arquitectura</ion-select-option>
+            <ion-select-option value="Calidad De software">Calidad De software</ion-select-option>
+            <ion-select-option value="Progrmacion de DB">Progrmacion de DB</ion-select-option>
+            <ion-select-option value="Programacion web">Programacion web</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Sección</ion-label>
+          <ion-select [(ngModel)]="selectedSeccion" name="seccion" [disabled]="!selectedAsignatura" required>
+            <ion-select-option value="001V">001V</ion-select-option>
+            <ion-select-option value="002V">002V</ion-select-option>
+            <ion-select-option value="007V">007V</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+
+        <ion-button expand="full" type="submit" [disabled]="!sedeForm.form.valid">Generar QR</ion-button>
+      </form>
+    
+      <div *ngIf="createdCode" class="row">     
+          <qrcode [qrdata]="createdCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      </div>
+      
+    </ion-content>
+    
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"
+                        text="regresar" 
+                        color="primary"
+                        mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img src="assets/image/profesor.png" alt="img alumno">
+    <h1 class="text">Docente</h1>
+  </div>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <br>
+    <input [(ngModel)]="username">
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <br>
+    <input [(ngModel)]="password" type="password">
+  </ion-item>
+
+  <ion-button expand="full" (click)="register()">Registrar</ion-button>
+  <p>{{ message }}</p>
+</ion-content>

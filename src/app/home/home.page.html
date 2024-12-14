@@ -1,20 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" style="text-align: center;">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/image/profesor.png" />
+    <ion-card-header>
+      <ion-card-title>Docente</ion-card-title>
+
+      <ion-card-subtitle>Registro de asistencia</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Seccion exlusiva para Docentes
+      
+    </ion-card-content> 
+    <ion-button [routerLink]="['/docente/']">Portal docente</ion-button>
+  </ion-card>
+
+
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/image/alumno.png" />
+    <ion-card-header>
+      <ion-card-title>Estudiante</ion-card-title>
+      <ion-card-subtitle>Registro de asistencia</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+     Registra tu asistencia
+      
+    </ion-card-content> 
+    <ion-button [routerLink]="['/alumno/']">Portal Alumno</ion-button>
+  </ion-card>
+
 </ion-content>

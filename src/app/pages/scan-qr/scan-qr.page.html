@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu-alumno"
+                        text="regresar" 
+                        color="primary"
+                        mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div id="reader"></div>
+
+ <div *ngIf="!isCameraPermissionGranted" >
+  <ion-button size="large" class="ion-padding" expand="full"   (click)="requestCameraPermission()">Solicitar  Permisos
+    <ion-icon slot="start" name="qr-scanner"></ion-icon>
+  </ion-button>
+  
+ </div>
+
+ <div *ngIf="scannerResult" >
+  <p>Resultado del scanner : {{scannerResult}} </p>
+  
+ </div>
+ 
+
+</ion-content>

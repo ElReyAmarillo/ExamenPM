@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img src="assets/image/logoduocuc.png" alt="logo duoc" height="20px">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img src="assets/image/alumno.png" alt="img alumno">
+    <h1 class="text">Para cambiar tu contraseña completa los campos a continuación y presiona el boton "modificar contraseña"</h1>
+  </div>
+
+  <div class="form-container"></div>
+    <form [formGroup]="loginFormAlumno" (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input formControlName="username" placeholder="{{ var_username }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nueva Contraseña</ion-label>
+        <ion-input formControlName="newpassword" placeholder="Ingresa tu nueva contraseña"></ion-input>
+      </ion-item>
+
+      <div *ngIf="loginFormAlumno.get('username')?.invalid && loginFormAlumno.get('username')?.touched">No cumple los parametros de usuario</div>
+
+      <div *ngIf="loginFormAlumno.get('newpassword')?.invalid && loginFormAlumno.get('newpassword')?.touched">No cumple los parametros de contraseña</div>
+
+      <ion-button (click)="toClick()" expand="block" type="submit">Modificar Contraseña</ion-button>
+
+    </form>
+      
+  
+</ion-content>

@@ -35,3 +35,12 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+ion-content {
+  overflow: auto;
+  height: 100%;
+}
+body.keyboard-open ion-content {
+    margin-bottom: 300px; /* Ajusta según la altura del teclado */
+  }
